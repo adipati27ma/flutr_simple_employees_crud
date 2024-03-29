@@ -1,7 +1,15 @@
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutr_simple_employees_crud/pages/home.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  /*
+    docs: WidgetsFlutterBinding.ensureInitialized() used,
+    this is a common practice in Flutter applications,
+    especially when you need to call certain methods before running the app.
+  */
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

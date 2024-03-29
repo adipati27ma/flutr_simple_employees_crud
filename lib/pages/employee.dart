@@ -1,4 +1,7 @@
+import 'package:flutr_simple_employees_crud/service/database.dart';
 import 'package:flutter/material.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
+import 'package:random_string/random_string.dart';
 
 class EmployeeForm extends StatefulWidget {
   const EmployeeForm({super.key});
@@ -8,6 +11,10 @@ class EmployeeForm extends StatefulWidget {
 }
 
 class _EmployeeFormState extends State<EmployeeForm> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +67,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
                   border: Border.all(color: Colors.grey)),
               padding: EdgeInsets.only(left: 10, right: 10),
               child: TextField(
+                controller: nameController,
                 decoration: InputDecoration(border: InputBorder.none),
               ),
             ),
@@ -80,6 +88,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
                   border: Border.all(color: Colors.grey)),
               padding: EdgeInsets.only(left: 10, right: 10),
               child: TextField(
+                controller: ageController,
                 decoration: InputDecoration(border: InputBorder.none),
               ),
             ),
@@ -100,6 +109,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
                   border: Border.all(color: Colors.grey)),
               padding: EdgeInsets.only(left: 10, right: 10),
               child: TextField(
+                controller: locationController,
                 decoration: InputDecoration(border: InputBorder.none),
               ),
             ),
@@ -109,6 +119,28 @@ class _EmployeeFormState extends State<EmployeeForm> {
                 alignment: Alignment.center,
                 child: ElevatedButton(
                     onPressed: () => {},
+                    // onPressed: () async {
+                    //   String id = randomAlphaNumeric(10);
+                    //   Map<String, dynamic> employeeInfoMap = {
+                    //     "name": nameController.text,
+                    //     "age": ageController.text,
+                    //     "location": locationController.text,
+                    //   };
+                    //   await DatabaseMethods()
+                    //       .addEmployeeDetails(employeeInfoMap, id)
+                    //       .then((value) {
+                    //     // Fluttertoast.showToast(
+                    //     //     msg: "Employee has been uploaded successfully!",
+                    //     //     toastLength: Toast.LENGTH_SHORT,
+                    //     //     gravity: ToastGravity.CENTER,
+                    //     //     timeInSecForIosWeb: 1,
+                    //     //     backgroundColor: Colors.blueGrey[50],
+                    //     //     textColor: Colors.black,
+                    //     //     fontSize: 16.0);
+                    //     print("Employee has been uploaded successfully!");
+                    //     Navigator.of(context).pop();
+                    //   });
+                    // },
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(Colors.lightBlue[50]),
