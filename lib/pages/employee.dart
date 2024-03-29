@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Employee extends StatefulWidget {
-  const Employee({super.key});
+class EmployeeForm extends StatefulWidget {
+  const EmployeeForm({super.key});
 
   @override
-  State<Employee> createState() => _EmployeeState();
+  State<EmployeeForm> createState() => _EmployeeFormState();
 }
 
-class _EmployeeState extends State<Employee> {
+class _EmployeeFormState extends State<EmployeeForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

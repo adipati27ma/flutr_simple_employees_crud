@@ -17,9 +17,9 @@ class _HomeState extends State<Home> {
         foregroundColor: Colors.white,
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Employee()));
+              context, MaterialPageRoute(builder: (context) => EmployeeForm()));
         },
-        tooltip: 'Add',
+        tooltip: 'Add employee',
         child: const Icon(Icons.add),
       ),
       appBar: AppBar(
