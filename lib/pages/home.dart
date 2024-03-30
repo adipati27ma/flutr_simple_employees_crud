@@ -69,16 +69,40 @@ class _HomeState extends State<Home> {
                                         color: Colors.blue,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  GestureDetector(
-                                      onTap: () {
-                                        nameController.text = ds['name'];
-                                        ageController.text = ds['age'];
-                                        locationController.text =
-                                            ds['location'];
-                                        editEmployeeDetail(ds.id);
-                                      },
-                                      child: Icon(Icons.edit,
-                                          color: Colors.orange)),
+                                  Row(
+                                    children: [
+                                      GestureDetector(
+                                          onTap: () {
+                                            nameController.text = ds['name'];
+                                            ageController.text = ds['age'];
+                                            locationController.text =
+                                                ds['location'];
+                                            editEmployeeDetail(ds.id);
+                                          },
+                                          child: Icon(Icons.edit,
+                                              color: Colors.orange)),
+                                      SizedBox(width: 5),
+                                      GestureDetector(
+                                          onTap: () {
+                                            DatabaseMethods()
+                                                .deleteEmployeeData(ds.id)
+                                                .then((value) {
+                                              Fluttertoast.showToast(
+                                                  msg:
+                                                      "${ds['name']}'s data deleted successfully!",
+                                                  toastLength:
+                                                      Toast.LENGTH_SHORT,
+                                                  gravity: ToastGravity.BOTTOM,
+                                                  timeInSecForIosWeb: 2,
+                                                  backgroundColor: Colors.blue,
+                                                  textColor: Colors.white,
+                                                  fontSize: 16.0);
+                                            });
+                                          },
+                                          child: Icon(Icons.delete,
+                                              color: Colors.red)),
+                                    ],
+                                  )
                                 ],
                               ),
                               Text(

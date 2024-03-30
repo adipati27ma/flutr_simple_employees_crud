@@ -39,4 +39,17 @@ class DatabaseMethods {
       );
     });
   }
+
+  // Delete employee
+  Future<void> deleteEmployeeData(String id) async {
+    return FirebaseFirestore.instance
+        .collection("Employees")
+        .doc(id)
+        .delete()
+        .catchError((e) {
+      print(
+        "Firebase Error: ${e.toString()}",
+      );
+    });
+  }
 }
