@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,39 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA8W2v6vyUgdS5UgRP-ZghV2Sfa-rIr6nk',
-    appId: '1:562869960811:web:513578c3224cf4e6cb312e',
-    messagingSenderId: '562869960811',
-    projectId: 'flutrsimpleemployeescrud',
-    authDomain: 'flutrsimpleemployeescrud.firebaseapp.com',
-    storageBucket: 'flutrsimpleemployeescrud.appspot.com',
-    measurementId: 'G-DEJ796DYSQ',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD8chBfbb6t4EqHtz9veK4Tdx-KDe2sEvQ',
     appId: '1:562869960811:android:73f56920b22fcaeccb312e',
     messagingSenderId: '562869960811',
     projectId: 'flutrsimpleemployeescrud',
     storageBucket: 'flutrsimpleemployeescrud.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCTtUKb0uYiGWtohJ2RQx7q-1arpllWE-o',
-    appId: '1:562869960811:ios:89353c382d3c0a5dcb312e',
-    messagingSenderId: '562869960811',
-    projectId: 'flutrsimpleemployeescrud',
-    storageBucket: 'flutrsimpleemployeescrud.appspot.com',
-    iosBundleId: 'com.example.flutrSimpleEmployeesCrud',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCTtUKb0uYiGWtohJ2RQx7q-1arpllWE-o',
-    appId: '1:562869960811:ios:061466c2548b3817cb312e',
-    messagingSenderId: '562869960811',
-    projectId: 'flutrsimpleemployeescrud',
-    storageBucket: 'flutrsimpleemployeescrud.appspot.com',
-    iosBundleId: 'com.example.flutrSimpleEmployeesCrud.RunnerTests',
   );
 }

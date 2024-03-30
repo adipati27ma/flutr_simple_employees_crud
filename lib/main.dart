@@ -6,16 +6,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   /*
     docs: WidgetsFlutterBinding.ensureInitialized() used,
     this is a common practice in Flutter applications,
     especially when you need to call certain methods before running the app.
   */
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // await Firebase.initializeApp();
   runApp(const MyApp());
 }
