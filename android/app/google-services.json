@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "562869960811",
+    "project_id": "flutrsimpleemployeescrud",
+    "storage_bucket": "flutrsimpleemployeescrud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562869960811:android:73f56920b22fcaeccb312e",
+        "android_client_info": {
+          "package_name": "com.example.flutr_simple_employees_crud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8chBfbb6t4EqHtz9veK4Tdx-KDe2sEvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
