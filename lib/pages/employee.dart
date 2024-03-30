@@ -134,7 +134,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
                         "location": locationController.text,
                       };
                       await DatabaseMethods()
-                          .addEmployeeDetails(employeeInfoMap, id)
+                          .addEmployee(employeeInfoMap, id)
                           .then((value) {
                         // ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         Fluttertoast.showToast(

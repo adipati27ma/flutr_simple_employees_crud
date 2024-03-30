@@ -1,12 +1,9 @@
 import "package:cloud_firestore/cloud_firestore.dart";
 
 class DatabaseMethods {
-  Future<void> addEmployeeDetails(
+  // Add employee
+  Future<void> addEmployee(
       Map<String, dynamic> employeeInfoMap, String id) async {
-    print(
-      "Firebase Running...!",
-    );
-
     return FirebaseFirestore.instance
         .collection("Employees")
         .doc(id)
@@ -16,5 +13,10 @@ class DatabaseMethods {
         "Firebase Error: ${e.toString()}",
       );
     });
+  }
+
+  // Get all employees
+  Future<Stream<QuerySnapshot>> getAllEmployees() async {
+    return FirebaseFirestore.instance.collection("Employees").snapshots();
   }
 }
