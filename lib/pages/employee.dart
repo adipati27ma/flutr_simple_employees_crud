@@ -118,7 +118,14 @@ class _EmployeeFormState extends State<EmployeeForm> {
             Container(
                 alignment: Alignment.center,
                 child: ElevatedButton(
-                    onPressed: () => {},
+                    onPressed: () {
+                      Map<String, dynamic> employeeInfoMap = {
+                        "name": nameController.text,
+                        "age": ageController.text,
+                        "location": locationController.text,
+                      };
+                      print(employeeInfoMap);
+                    },
                     // onPressed: () async {
                     //   String id = randomAlphaNumeric(10);
                     //   Map<String, dynamic> employeeInfoMap = {
