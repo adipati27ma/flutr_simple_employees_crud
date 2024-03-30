@@ -1,6 +1,6 @@
 import 'package:flutr_simple_employees_crud/service/database.dart';
 import 'package:flutter/material.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:random_string/random_string.dart';
 
 class EmployeeForm extends StatefulWidget {
@@ -136,15 +136,15 @@ class _EmployeeFormState extends State<EmployeeForm> {
                       await DatabaseMethods()
                           .addEmployeeDetails(employeeInfoMap, id)
                           .then((value) {
-                        // Fluttertoast.showToast(
-                        //     msg: "Employee has been uploaded successfully!",
-                        //     toastLength: Toast.LENGTH_SHORT,
-                        //     gravity: ToastGravity.CENTER,
-                        //     timeInSecForIosWeb: 1,
-                        //     backgroundColor: Colors.blueGrey[50],
-                        //     textColor: Colors.black,
-                        //     fontSize: 16.0);
-                        print("Employee has been uploaded successfully!");
+                        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        Fluttertoast.showToast(
+                            msg: "Employee has been uploaded successfully!",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 2,
+                            backgroundColor: Colors.yellowAccent,
+                            textColor: Colors.black,
+                            fontSize: 18.0);
                         Navigator.of(context).pop();
                       });
                     },
@@ -166,3 +166,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
     );
   }
 }
+
+const snackBar = SnackBar(
+  content: Text('Yay! A SnackBar!'),
+);
