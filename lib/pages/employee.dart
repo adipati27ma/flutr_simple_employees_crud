@@ -18,6 +18,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
@@ -48,6 +49,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
       body: Container(
         margin: EdgeInsets.only(left: 20, right: 20, top: 30),
         width: double.maxFinite,
+        height: MediaQuery.of(context).size.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -140,7 +142,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
                           "location": locationController.text,
                         };
                         await DatabaseMethods()
-                            .addEmployee(employeeInfoMap, id)
+                            .addEmployeeData(employeeInfoMap, id)
                             .then((value) {
                           // ScaffoldMessenger.of(context).showSnackBar(snackBar);
                           Fluttertoast.showToast(
