@@ -116,50 +116,57 @@ class _EmployeeFormState extends State<EmployeeForm> {
             // ==Form Button==
             SizedBox(height: 20),
             Container(
-                alignment: Alignment.center,
-                child: ElevatedButton(
-                    // onPressed: () {
-                    //   Map<String, dynamic> employeeInfoMap = {
-                    //     "name": nameController.text,
-                    //     "age": ageController.text,
-                    //     "location": locationController.text,
-                    //   };
-                    //   print(employeeInfoMap);
-                    // },
-                    onPressed: () async {
-                      String id = randomAlphaNumeric(10);
-                      Map<String, dynamic> employeeInfoMap = {
-                        "name": nameController.text,
-                        "age": ageController.text,
-                        "location": locationController.text,
-                      };
-                      await DatabaseMethods()
-                          .addEmployee(employeeInfoMap, id)
-                          .then((value) {
-                        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        Fluttertoast.showToast(
-                            msg: "Employee has been uploaded successfully!",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
-                            timeInSecForIosWeb: 2,
-                            backgroundColor: Colors.yellowAccent,
-                            textColor: Colors.black,
-                            fontSize: 18.0);
-                        Navigator.of(context).pop();
-                      });
-                    },
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.lightBlue[50]),
-                        padding: MaterialStateProperty.all(EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10))),
-                    child: Text(
-                      "Add Employee",
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    )))
+                alignment: Alignment.centerRight,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(color: Colors.blue, width: 1),
+                  ),
+                  child: ElevatedButton(
+                      // onPressed: () {
+                      //   Map<String, dynamic> employeeInfoMap = {
+                      //     "name": nameController.text,
+                      //     "age": ageController.text,
+                      //     "location": locationController.text,
+                      //   };
+                      //   print(employeeInfoMap);
+                      // },
+                      onPressed: () async {
+                        String id = randomAlphaNumeric(10);
+                        Map<String, dynamic> employeeInfoMap = {
+                          "name": nameController.text,
+                          "age": ageController.text,
+                          "location": locationController.text,
+                        };
+                        await DatabaseMethods()
+                            .addEmployee(employeeInfoMap, id)
+                            .then((value) {
+                          // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          Fluttertoast.showToast(
+                              msg: "Employee has been uploaded successfully!",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.yellowAccent,
+                              textColor: Colors.black,
+                              fontSize: 18.0);
+                          Navigator.of(context).pop();
+                        });
+                      },
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.lightBlue[50]),
+                          padding: MaterialStateProperty.all(EdgeInsets.only(
+                              left: 20, right: 20, top: 10, bottom: 10))),
+                      child: Text(
+                        "Add Employee",
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      )),
+                ))
           ],
         ),
       ),
