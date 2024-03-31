@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutr_simple_employees_crud/pages/employee.dart';
 import 'package:flutr_simple_employees_crud/service/database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Home extends StatefulWidget {
