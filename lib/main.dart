@@ -22,7 +22,11 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  /*
+    docs: This widget is the root of your application.
+    @override is overriding and redefining the corresponding member from a base class
+    (in this case, build() class is redefined in a custom build widget)
+  */
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
