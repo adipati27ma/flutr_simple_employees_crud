@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutr_simple_employees_crud/pages/employee.dart';
 import 'package:flutr_simple_employees_crud/service/database.dart';
@@ -62,47 +64,45 @@ class _HomeState extends State<Home> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    "Name : ${ds['name']}",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.blue,
-                                        fontWeight: FontWeight.bold),
+                                  SizedBox(
+                                    width: 255,
+                                    child: Text(
+                                      "Name : ${ds['name']}",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
-                                  Row(
-                                    children: [
-                                      GestureDetector(
-                                          onTap: () {
-                                            nameController.text = ds['name'];
-                                            ageController.text = ds['age'];
-                                            locationController.text =
-                                                ds['location'];
-                                            editEmployeeDetail(ds.id);
-                                          },
-                                          child: Icon(Icons.edit,
-                                              color: Colors.orange)),
-                                      SizedBox(width: 5),
-                                      GestureDetector(
-                                          onTap: () {
-                                            DatabaseMethods()
-                                                .deleteEmployeeData(ds.id)
-                                                .then((value) {
-                                              Fluttertoast.showToast(
-                                                  msg:
-                                                      "${ds['name']}'s data deleted successfully!",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  gravity: ToastGravity.BOTTOM,
-                                                  timeInSecForIosWeb: 2,
-                                                  backgroundColor: Colors.blue,
-                                                  textColor: Colors.white,
-                                                  fontSize: 16.0);
-                                            });
-                                          },
-                                          child: Icon(Icons.delete,
-                                              color: Colors.red)),
-                                    ],
-                                  )
+                                  GestureDetector(
+                                      onTap: () {
+                                        nameController.text = ds['name'];
+                                        ageController.text = ds['age'];
+                                        locationController.text =
+                                            ds['location'];
+                                        editEmployeeDetail(ds.id);
+                                      },
+                                      child: Icon(Icons.edit,
+                                          color: Colors.orange)),
+                                  SizedBox(width: 5),
+                                  GestureDetector(
+                                      onTap: () {
+                                        DatabaseMethods()
+                                            .deleteEmployeeData(ds.id)
+                                            .then((value) {
+                                          Fluttertoast.showToast(
+                                              msg:
+                                                  "${ds['name']}'s data deleted successfully!",
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.BOTTOM,
+                                              timeInSecForIosWeb: 2,
+                                              backgroundColor: Colors.blue,
+                                              textColor: Colors.white,
+                                              fontSize: 16.0);
+                                        });
+                                      },
+                                      child: Icon(Icons.delete,
+                                          color: Colors.red)),
                                 ],
                               ),
                               Text(
