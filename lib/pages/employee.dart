@@ -150,8 +150,8 @@ class _EmployeeFormState extends State<EmployeeForm> {
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.CENTER,
                               timeInSecForIosWeb: 2,
-                              backgroundColor: Colors.yellowAccent,
-                              textColor: Colors.black,
+                              backgroundColor: Colors.blue,
+                              textColor: Colors.white,
                               fontSize: 18.0);
                           Navigator.of(context).pop();
                         });
