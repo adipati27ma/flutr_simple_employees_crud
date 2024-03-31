@@ -87,19 +87,49 @@ class _HomeState extends State<Home> {
                                   SizedBox(width: 5),
                                   GestureDetector(
                                       onTap: () {
-                                        DatabaseMethods()
-                                            .deleteEmployeeData(ds.id)
-                                            .then((value) {
-                                          Fluttertoast.showToast(
-                                              msg:
-                                                  "${ds['name']}'s data deleted successfully!",
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              gravity: ToastGravity.BOTTOM,
-                                              timeInSecForIosWeb: 2,
-                                              backgroundColor: Colors.blue,
-                                              textColor: Colors.white,
-                                              fontSize: 16.0);
-                                        });
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title:
+                                                      Text("Delete Employee"),
+                                                  content: Text(
+                                                      "Are you sure you want to delete ${ds['name']}?"),
+                                                  actions: [
+                                                    TextButton(
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        child: Text("No")),
+                                                    TextButton(
+                                                        onPressed: () async {
+                                                          await DatabaseMethods()
+                                                              .deleteEmployeeData(
+                                                                  ds.id)
+                                                              .then((value) {
+                                                            Fluttertoast.showToast(
+                                                                msg:
+                                                                    "${ds['name']}'s data deleted successfully!",
+                                                                toastLength: Toast
+                                                                    .LENGTH_SHORT,
+                                                                gravity:
+                                                                    ToastGravity
+                                                                        .CENTER,
+                                                                timeInSecForIosWeb:
+                                                                    2,
+                                                                backgroundColor:
+                                                                    Colors.blue,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                fontSize: 16.0);
+                                                            Navigator.pop(
+                                                                context);
+                                                          });
+                                                        },
+                                                        child: Text("Yes"))
+                                                  ],
+                                                ));
                                       },
                                       child: Icon(Icons.delete,
                                           color: Colors.red)),
@@ -290,7 +320,7 @@ class _HomeState extends State<Home> {
                                   msg:
                                       "${nameController.text}'s data updated successfully!",
                                   toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.BOTTOM,
+                                  gravity: ToastGravity.CENTER,
                                   timeInSecForIosWeb: 2,
                                   backgroundColor: Colors.blue,
                                   textColor: Colors.white,
