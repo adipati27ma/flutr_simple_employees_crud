@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
   TextEditingController ageController = TextEditingController();
   TextEditingController locationController = TextEditingController();
 
+  // docs: Stream is a sequence of asynchronous events.
   Stream? employeeStream;
 
   getEmployeesOnTheLoad() async {
