@@ -232,118 +232,121 @@ class _HomeState extends State<Home> {
                   ),
                 ]),
             content: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // ==Form Name==
-                  Text(
-                    "Name",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey)),
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    child: TextField(
-                      controller: nameController,
-                      decoration: InputDecoration(border: InputBorder.none),
+              child: SizedBox(
+                width: double.maxFinite,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // ==Form Name==
+                    Text(
+                      "Name",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold),
                     ),
-                  ),
-                  // ==Form Age==
-                  SizedBox(height: 20),
-                  Text(
-                    "Age",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey)),
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    child: TextField(
-                      controller: ageController,
-                      decoration: InputDecoration(border: InputBorder.none),
+                    SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey)),
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      child: TextField(
+                        controller: nameController,
+                        decoration: InputDecoration(border: InputBorder.none),
+                      ),
                     ),
-                  ),
-                  // ==Form Location==
-                  SizedBox(height: 20),
-                  Text(
-                    "Location",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey)),
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    child: TextField(
-                      controller: locationController,
-                      decoration: InputDecoration(border: InputBorder.none),
+                    // ==Form Age==
+                    SizedBox(height: 20),
+                    Text(
+                      "Age",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold),
                     ),
-                  ),
-                  SizedBox(height: 30),
-                  Container(
-                      alignment: Alignment.centerRight,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(color: Colors.blue, width: 1),
-                        ),
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            await DatabaseMethods().updateEmployeeData({
-                              "name": nameController.text,
-                              "age": ageController.text,
-                              "location": locationController.text
-                            }, id).then((value) {
-                              Fluttertoast.showToast(
-                                  msg:
-                                      "${nameController.text}'s data updated successfully!",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.CENTER,
-                                  timeInSecForIosWeb: 2,
-                                  backgroundColor: Colors.blue,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0);
-                              Navigator.pop(context);
-                            });
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  Colors.lightBlue[50]),
-                              padding: MaterialStateProperty.all(
-                                  EdgeInsets.only(
-                                      left: 20,
-                                      right: 20,
-                                      top: 10,
-                                      bottom: 10))),
-                          child: Text(
-                            "Update",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                    SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey)),
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      child: TextField(
+                        controller: ageController,
+                        decoration: InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                    // ==Form Location==
+                    SizedBox(height: 20),
+                    Text(
+                      "Location",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey)),
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      child: TextField(
+                        controller: locationController,
+                        decoration: InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                    Container(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(50),
+                            border: Border.all(color: Colors.blue, width: 1),
                           ),
-                        ),
-                      ))
-                ],
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              await DatabaseMethods().updateEmployeeData({
+                                "name": nameController.text,
+                                "age": ageController.text,
+                                "location": locationController.text
+                              }, id).then((value) {
+                                Fluttertoast.showToast(
+                                    msg:
+                                        "${nameController.text}'s data updated successfully!",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.CENTER,
+                                    timeInSecForIosWeb: 2,
+                                    backgroundColor: Colors.blue,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0);
+                                Navigator.pop(context);
+                              });
+                            },
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.lightBlue[50]),
+                                padding: MaterialStateProperty.all(
+                                    EdgeInsets.only(
+                                        left: 20,
+                                        right: 20,
+                                        top: 10,
+                                        bottom: 10))),
+                            child: Text(
+                              "Update",
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ))
+                  ],
+                ),
               ),
             )),
       );
